@@ -1,0 +1,39 @@
+{
+  "name": "JotFox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "jotfox.io",
+    "mac": {
+      "category": "productivity"
+    }
+  },
+  "postinstall": "electron-builder install-app-deps",
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron-prebuilt-compile": "9.0.5"
+  },
+  "dependencies": {
+    "electron": "^9.0.5",
+    "electron-eval": "^0.9.10",
+    "electron-main-window": "^1.0.4",
+    "electron-reload": "^1.5.0",
+    "fs-jetpack": "^2.4.0",
+    "menubar": "^9.0.1"
+  }
+}

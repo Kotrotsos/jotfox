@@ -1,0 +1,24 @@
+
+body { 
+    background-color: #444;
+    margin: 0 !important;
+}
+
+.CodeMirror { 
+    font-family: 'Fira Code', Menlo, Monaco, 'Courier New', monospace !important;
+    height: 100vh !important;
+    font-size: 20px !important;
+    padding-left: 20px;
+ }
+
+ div.cm-s-one-dark .CodeMirror-linenumber, div.cm-s-one-dark .CodeMirror-linenumbers {
+
+    background-color: transparent;
+}
+
+.nav {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 9;
+}

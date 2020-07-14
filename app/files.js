@@ -1,10 +1,8 @@
-
 const jp = require("fs-jetpack");
 const { exec } = require("child_process");
 
-
 class File {
- 
+
   userPath;
   filename;
   index;
@@ -18,13 +16,12 @@ class File {
   }
 
   getIndex() {
-    return this.index = jp.list(this.userPath + "/userdata").length;
+    return this.index = jp.list(this.userPath + "/userdata").length - 1;
   }
   getCurrent() {
     return localStorage.getItem('currentFile').replace('.data', '');
   }
   
-
   add() {
     this.getIndex();
     jp.write(this.userPath + "/userdata/" + (this.index + 1) + '.data', '');
@@ -48,7 +45,7 @@ class File {
     if (n > max) n = 1;
  
     localStorage.setItem('currentFile', n + '.data')
-  
+
     return n + '.data'
   }
   delete() {
@@ -59,8 +56,9 @@ class File {
     jp.remove(this.userPath + "/userdata/" + c + ".data");
     localStorage.setItem('currentFile', n + '.data');
    
+    process.chdir(this.userPath + "/userdata/");
 
-    exec(`ls -v | cat -n | while read n f; do mv -n "$f" "$n.data"; done`, (error, stdout, stderr) => {
+    exec('count=0; for f in *; do [ -f "$f" ] && mv -f "$f" "$((++count)).${f##*.}"; done', (error, stdout, stderr) => {
       if (error) {
           console.log(`error: ${error.message}`);
           return;
@@ -71,7 +69,6 @@ class File {
       }
       console.log(`stdout: ${stdout}`);
       });
-
 
     return n + '.data';
   }

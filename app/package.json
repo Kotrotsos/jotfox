@@ -1,11 +1,11 @@
 {
-  "name": "JotFox",
+  "name": "jotfox",
   "version": "1.0.0",
-  "description": "",
+  "description": "Jotfox is a smart live notes taking app",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
+    "pack": "asar pack /Users/temp/ELECTRON/jotfox/distri/jotfox.app/Contents/Resources/app /Users/temp/ELECTRON/jotfox/distri/jotfox.app/Contents/Resources/app.asar",
     "dist": "electron-builder"
   },
   "build": {
@@ -26,11 +26,13 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "electron": "^9.0.5",
+    "electron-packager": "^14.2.1",
     "electron-prebuilt-compile": "9.0.5"
   },
   "dependencies": {
-    "electron": "^9.0.5",
     "electron-eval": "^0.9.10",
+    "electron-json-storage": "^4.2.0",
     "electron-main-window": "^1.0.4",
     "electron-reload": "^1.5.0",
     "fs-jetpack": "^2.4.0",

@@ -6,7 +6,7 @@ require('./shortcuts.js');
 require('./evaluate.js');
 
 global.config = {
-  currentFile: 'data/01.data',
+  currentFile: '1.data',
   environment: 'development',
 
 };
@@ -31,24 +31,14 @@ function createWindow () {
     }
   })
 
-  mainWindow.webContents.executeJavaScript(`
-  var path = require('path');
-  module.paths.push(path.resolve('node_modules'));
-  module.paths.push(path.resolve('../node_modules'));
-  module.paths.push(path.resolve(__dirname, '..', '..', 'electron', 'node_modules'));
-  module.paths.push(path.resolve(__dirname, '..', '..', 'electron.asar', 'node_modules'));
-  module.paths.push(path.resolve(__dirname, '..', '..', 'app', 'node_modules'));
-  module.paths.push(path.resolve(__dirname, '..', '..', 'app.asar', 'node_modules'));
-  path = undefined;
-`);
-
   // and load the index.html of the app.
- mainWindow.loadFile('index.html')
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
  
+
   // Open the DevTools.
  //
  
- //mainWindow.webContents.openDevTools()
+ if (global.config.environment === 'development') { mainWindow.webContents.openDevTools(); }
 }
 
 app.whenReady().then(() => {

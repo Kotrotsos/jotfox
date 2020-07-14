@@ -94,14 +94,17 @@ CodeMirror.defineMode("jot", function(config, parserConfig) {
       } else {
         stream.eat("=");
         return ret("operator", "operator", stream.current());
-      }
+      } 
     } else if (ch == "`") {
       state.tokenize = tokenQuasi;
       return tokenQuasi(stream, state);
     } else if (ch == "#" && stream.peek() == "!") {
       stream.skipToEnd();
       return ret("meta", "meta");
-    } else if (ch == "#" && stream.eatWhile(wordRE)) {
+    } else if (ch == "#" && stream.peek() == "#") {
+      stream.skipToEnd();
+      return ret("header", "header"); }
+      else if (ch == "#" && stream.eatWhile(wordRE)) {
       return ret("variable", "property")
     } else if (ch == "<" && stream.match("!--") ||
                (ch == "-" && stream.match("->") && !/\S/.test(stream.string.slice(0, stream.start)))) {

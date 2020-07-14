@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    
-    <link rel="stylesheet" href="./css/jotfox.css" />
-    <link rel="stylesheet" href="./css/codemirror.css" />
-    <link rel="stylesheet" href="./css/theme-onedarkpro.css" />
-    <title>Jotfox 1.0</title>
-  </head>
-  <body>
-    <div class="nav cm-s-one-dark">Files [+]</div>
-    <textarea name="" id="editor">
-
-    </textarea>
-    
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-    <script src="./codemirror/codemirror.js"></script>
-
-    <script src="./codemirror/fold/foldcode.js"></script>
-    <script src="./codemirror/fold/foldgutter.js"></script>
-    <script src="./codemirror/fold/brace-fold.js"></script>
-    <script src="./codemirror/fold/xml-fold.js"></script>
-    <script src="./codemirror/fold/indent-fold.js"></script>
-    <script src="./codemirror/fold/markdown-fold.js"></script>
-    <script src="./codemirror/fold/comment-fold.js"></script>
-    <script src="./codemirror/markdown/markdown.js"></script>
-    <script src="./codemirror/jot/jot.js"></script>
-    <script src="./editor.js"></script>
-
-     
-
+<head>
+  <meta charset="UTF-8"><!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta content="default-src 'self'; script-src 'self'"
+        http-equiv="Content-Security-Policy">
+  <meta content="default-src 'self'; script-src 'self'"
+        http-equiv="X-Content-Security-Policy">
+  <link href="./css/jotfox.css"
+        rel="stylesheet">
+  <link href="./css/codemirror.css"
+        rel="stylesheet">
+  <link href="./css/theme-onedarkpro.css"
+        rel="stylesheet">
+  <title>Jotfox 1.1</title>
+</head>
+<body>
+  <div class="nav cm-s-one-dark">
+    Files <span class="jotfox-add">[+]</span> <span class="jotfox-previous">[&lt;]</span> <span class="jotfox-next">[&gt;]</span> <span class="jotfox-delete">[-]</span>
+  </div>
+  <textarea id="editor"
+        name=""></textarea> <!-- You can also require other files to run in this process -->
    
-  </body>
+  <script src="./renderer.js"></script> 
+  <script src="./codemirror/codemirror.js"></script> 
+  <script src="./codemirror/fold/foldcode.js"></script> 
+  <script src="./codemirror/fold/foldgutter.js"></script> 
+  <script src="./codemirror/fold/brace-fold.js"></script> 
+  <script src="./codemirror/fold/xml-fold.js"></script> 
+  <script src="./codemirror/fold/indent-fold.js"></script> 
+  <script src="./codemirror/fold/markdown-fold.js"></script> 
+  <script src="./codemirror/fold/comment-fold.js"></script> 
+  <script src="./codemirror/markdown/markdown.js"></script> 
+  <script src="./codemirror/jot/jot.js"></script> 
+  <script src="./editor.js"></script>
+</body>
 </html>
